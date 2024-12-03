@@ -195,8 +195,8 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 | Extra parameter | Description | Comment |
 | ------ | ------ | ------ |
 | -o | \"HINTSLICING\" to activate HINT-organized posting lists with Slicing |  |
-| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 5 for ECLOG, WIKIPEDIA, and 8 for SYNTHETIC |
-| -p | set the number of partitions | 50 for ECLOG, WIKIPEDIA, and 250 for SYNTHETIC |
+| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 5 for both ECLOG and WIKIPEDIA, and 8 for SYNTHETIC |
+| -p | set the number of partitions | 50 for both ECLOG and WIKIPEDIA, and 250 for SYNTHETIC |
 
 - ##### Examples
     ```sh
