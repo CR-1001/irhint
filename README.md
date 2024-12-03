@@ -266,8 +266,8 @@ The first will be used for constructing, the second for updating the index.
 
 - ##### Examples
     ```sh
-    $ ./update_tif.exec -o HINTSLICING -m 5 -p 250 samples/eclog/ECOM-LOG.dat_bottom90% samples/eclog/ECOM-LOG.dat_top10%
+    $ ./update_tif.exec -o HINTSLICING -m 5 -p 50 samples/eclog/ECOM-LOG.dat_bottom90% samples/eclog/ECOM-LOG.dat_top10%
     ```
     ```sh
-    $ ./query_irhint.exec -o B samples/eclog/ECOM-LOG.dat_bottom90% samples/eclog/ECOM-LOG.dat_top10%
+    $ ./query_irhint.exec -o A -m 10 samples/eclog/ECOM-LOG.dat_bottom90% samples/eclog/ECOM-LOG.dat_top10%
     ```
