@@ -163,7 +163,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 | Extra parameter | Description | Comment |
 | ------ | ------ | ------ |
 | -o | \"HINTG\" to activate HINT-organized posting lists with merge sort |  |
-| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 5 for ECLOG, WIKIPEDIA, and 8 for SYNTHETIC |
+| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 5 for both ECLOG and WIKIPEDIA, and 8 for SYNTHETIC |
 
 - ##### Examples
     ```sh
@@ -195,8 +195,8 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 | Extra parameter | Description | Comment |
 | ------ | ------ | ------ |
 | -o | \"HINTSLICING\" to activate HINT-organized posting lists with Slicing |  |
-| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 5 for ECLOG, WIKIPEDIA, and 8 for SYNTHETIC |
-| -p | set the number of partitions | 50 for ECLOG, WIKIPEDIA, and 250 for SYNTHETIC |
+| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 5 for both ECLOG and WIKIPEDIA, and 8 for SYNTHETIC |
+| -p | set the number of partitions | 50 for both ECLOG and WIKIPEDIA, and 250 for SYNTHETIC |
 
 - ##### Examples
     ```sh
@@ -252,7 +252,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 | Extra parameter | Description | Comment |
 | ------ | ------ | ------ |
 | -o | \"B\" to activate memory mode |  |
-| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 10 for ECLOG, 10 for WIKIPEDIA and 15 for SYNTHETIC |
+| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 10 for both ECLOG and WIKIPEDIA and 15 for SYNTHETIC |
 
 - ##### Examples
     ```sh
@@ -266,8 +266,8 @@ The first will be used for constructing, the second for updating the index.
 
 - ##### Examples
     ```sh
-    $ ./update_tif.exec -o HINTSLICING -m 5 -p 250 samples/eclog/ECOM-LOG.dat_bottom90% samples/eclog/ECOM-LOG.dat_top10%
+    $ ./update_tif.exec -o HINTSLICING -m 5 -p 50 samples/eclog/ECOM-LOG.dat_bottom90% samples/eclog/ECOM-LOG.dat_top10%
     ```
     ```sh
-    $ ./query_irhint.exec -o B samples/eclog/ECOM-LOG.dat_bottom90% samples/eclog/ECOM-LOG.dat_top10%
+    $ ./query_irhint.exec -o A -m 10 samples/eclog/ECOM-LOG.dat_bottom90% samples/eclog/ECOM-LOG.dat_top10%
     ```
