@@ -131,7 +131,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 | Extra parameter | Description | Comment |
 | ------ | ------ | ------ |
 | -o | \"HINTB\" to activate HINT-organized posting lists with binary search |  |
-| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 10 for ECLOG, WIKIPEDIA |
+| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 10 for both ECLOG and WIKIPEDIA |
 
 - ##### Examples
     ```sh
