@@ -163,7 +163,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 | Extra parameter | Description | Comment |
 | ------ | ------ | ------ |
 | -o | \"HINTG\" to activate HINT-organized posting lists with merge sort |  |
-| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 5 for ECLOG, WIKIPEDIA, and 8 for SYNTHETIC |
+| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 5 for both ECLOG and WIKIPEDIA, and 8 for SYNTHETIC |
 
 - ##### Examples
     ```sh
@@ -252,7 +252,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 | Extra parameter | Description | Comment |
 | ------ | ------ | ------ |
 | -o | \"B\" to activate memory mode |  |
-| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 10 for ECLOG, 10 for WIKIPEDIA and 15 for SYNTHETIC |
+| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 10 for both ECLOG and WIKIPEDIA and 15 for SYNTHETIC |
 
 - ##### Examples
     ```sh
