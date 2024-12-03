@@ -190,8 +190,7 @@ void irHINTa::updatePartitions(const IRecord &r)
 
 irHINTa::irHINTa(const IRelation &R, const unsigned int numBits = 0) : HierarchicalIRIndex(R, numBits)
 {
-    #ifdef CONSTRUCTION_TWO_PASSES
-
+#ifdef CONSTRUCTION_TWO_PASSES
     // Step 1: one pass to count the contents inside each partition.
     this->pOrgsIn_lsizes  = new TermId**[this->height];
     this->pOrgsAft_lsizes = new TermId**[this->height];
@@ -220,8 +219,7 @@ irHINTa::irHINTa(const IRelation &R, const unsigned int numBits = 0) : Hierarchi
 
     for (const IRecord &r : R)
         this->updateCounters(r);
-
-    #endif
+#endif
 
     // Step 2: allocate necessary memory
     this->pOrgsIn  = new TemporalInvertedFile*[this->height];
@@ -237,8 +235,7 @@ irHINTa::irHINTa(const IRelation &R, const unsigned int numBits = 0) : Hierarchi
         this->pRepsIn[l]  = new TemporalInvertedFile[cnt];
         this->pRepsAft[l] = new TemporalInvertedFile[cnt];
 
-        #ifdef CONSTRUCTION_TWO_PASSES
-        
+#ifdef CONSTRUCTION_TWO_PASSES
         for (auto p = 0; p < cnt; p++)
         {
             for (TermId tid = 0; tid < R.dictionarySize; tid++)
@@ -253,8 +250,7 @@ irHINTa::irHINTa(const IRelation &R, const unsigned int numBits = 0) : Hierarchi
                     this->pRepsAft[l][p].lists[tid].reserve(this->pRepsAft_lsizes[l][p][tid]);
             }
         }
-
-        #endif
+#endif
     }
     
     // Step 3: fill partitions.
@@ -262,8 +258,7 @@ irHINTa::irHINTa(const IRelation &R, const unsigned int numBits = 0) : Hierarchi
         this->updatePartitions(r);
     
 
-    #ifdef CONSTRUCTION_TWO_PASSES
-    
+#ifdef CONSTRUCTION_TWO_PASSES    
     // Free auxiliary memory.
     for (auto l = 0; l < this->height; l++)
     {
@@ -286,8 +281,7 @@ irHINTa::irHINTa(const IRelation &R, const unsigned int numBits = 0) : Hierarchi
     delete[] this->pOrgsAft_lsizes;
     delete[] this->pRepsIn_lsizes;
     delete[] this->pRepsAft_lsizes;
-
-    #endif
+#endif
 }
 
 
