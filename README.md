@@ -68,11 +68,11 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 | Extra parameter | Description | Comment |
 | ------ | ------ | ------ |
 | -o | \"SLICING\" to activate slicing of posting lists |  |
-| -p | set the number of partitions | 250 for ECLOG, WIKIPEDIA, and SYNTHETIC |
+| -p | set the number of partitions | 50 for ECLOG, WIKIPEDIA, and 250 for SYNTHETIC |
 
 - ##### Examples
     ```sh
-    $ ./query_tif.exec -o SLICING -p 100 samples/eclog/ECOM-LOG.dat samples/eclog/ECOM-LOG.dat_10K_elems3-extent0.1%.qry
+    $ ./query_tif.exec -o SLICING -p 50 samples/eclog/ECOM-LOG.dat samples/eclog/ECOM-LOG.dat_10K_elems3-extent0.1%.qry
     ```
 
 
@@ -131,7 +131,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 | Extra parameter | Description | Comment |
 | ------ | ------ | ------ |
 | -o | \"HINTB\" to activate HINT-organized posting lists with binary search |  |
-| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 10 for ECLOG, WIKIPEDIA, and SYNTHETIC |
+| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 10 for ECLOG, WIKIPEDIA |
 
 - ##### Examples
     ```sh
@@ -163,7 +163,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 | Extra parameter | Description | Comment |
 | ------ | ------ | ------ |
 | -o | \"HINTG\" to activate HINT-organized posting lists with merge sort |  |
-| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 5 for ECLOG, WIKIPEDIA, and SYNTHETIC |
+| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 5 for ECLOG, WIKIPEDIA, and 8 for SYNTHETIC |
 
 - ##### Examples
     ```sh
@@ -195,12 +195,12 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 | Extra parameter | Description | Comment |
 | ------ | ------ | ------ |
 | -o | \"HINTSLICING\" to activate HINT-organized posting lists with Slicing |  |
-| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 5 for ECLOG, WIKIPEDIA, and SYNTHETIC |
-| -p | set the number of partitions | 250 for ECLOG, WIKIPEDIA, and SYNTHETIC |
+| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 5 for ECLOG, WIKIPEDIA, and 8 for SYNTHETIC |
+| -p | set the number of partitions | 50 for ECLOG, WIKIPEDIA, and 250 for SYNTHETIC |
 
 - ##### Examples
     ```sh
-    $ ./query_tif.exec -o HINTSLICING -m 5 -p 250 samples/eclog/ECOM-LOG.dat samples/eclog/ECOM-LOG.dat_10K_elems3-extent0.1%.qry
+    $ ./query_tif.exec -o HINTSLICING -m 5 -p 50 samples/eclog/ECOM-LOG.dat samples/eclog/ECOM-LOG.dat_10K_elems3-extent0.1%.qry
     ```
 
 
@@ -224,11 +224,11 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 | Extra parameter | Description | Comment |
 | ------ | ------ | ------ |
 | -o | \"A\" to activate performance mode |  |
-| -m | set the number of bits; if not set, a value will be automatically determined using the cost model |  |
+| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 10 for ECLOG, 9 for WIKIPEDIA and 13 for SYNTHETIC |
 
 - ##### Examples
     ```sh
-    $ ./query_irhint.exec -o A samples/eclog/ECOM-LOG.dat samples/eclog/ECOM-LOG.dat_10K_elems3-extent0.1%.qry
+    $ ./query_irhint.exec -o A -m 10 samples/eclog/ECOM-LOG.dat samples/eclog/ECOM-LOG.dat_10K_elems3-extent0.1%.qry
     ```
 
 
@@ -252,7 +252,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 | Extra parameter | Description | Comment |
 | ------ | ------ | ------ |
 | -o | \"B\" to activate memory mode |  |
-| -m | set the number of bits; if not set, a value will be automatically determined using the cost model |  |
+| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 10 for ECLOG, 10 for WIKIPEDIA and 15 for SYNTHETIC |
 
 - ##### Examples
     ```sh
