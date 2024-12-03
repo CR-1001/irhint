@@ -103,7 +103,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 
 - ##### Examples
     ```sh
-    $ ./query_tif.exec -o SHARDING -x 2 -i 100 samples/eclog/ECOM-LOG.dat samples/eclog/ECOM-LOG.dat_10K_elems3-extent0.1%.qry
+    $ ./query_tif.exec -o SHARDING -x 5 -i 100 samples/eclog/ECOM-LOG.dat samples/eclog/ECOM-LOG.dat_10K_elems3-extent0.1%.qry
     ```
 
 
