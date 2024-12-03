@@ -47,7 +47,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
     ```
 
 
-### tIF-Slicing
+### tIF+Slicing
 
 #### Source code files
 - def_global.h
@@ -76,7 +76,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
     ```
 
 
-### tIF-Sharding
+### tIF+Sharding
 
 #### Source code files
 - def_global.h
@@ -107,7 +107,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
     ```
 
 
-### tIF-HINT-beta (binary search)
+### tIF+HINT using binary search variant (a.k.a. tIF+HINT-beta)
 
 #### Source code files
 - def_global.h
@@ -139,7 +139,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
     ```
 
 
-### tIF-HINT-gamma (merge sort)
+### tIF+HINT using merge-sort variant (a.k.a. tIF+HINT-gamma)
 
 #### Source code files
 - def_global.h
@@ -171,7 +171,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
     ```
 
 
-### tIF-HINT-Slicing
+### tIF+HINT+Slicing hybrid variant 
 
 #### Source code files
 - def_global.h
@@ -204,7 +204,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
     ```
 
 
-### irHINT-alpha (performance)
+### irHINT performance variant (a.k.a. irHINT-alpha)
 
 #### Source code files
 - def_global.h
@@ -232,7 +232,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
     ```
 
 
-### irHINT-beta (memory)
+### irHINT size variant (a.k.a. irHINT-beta)
 
 #### Source code files
 - def_global.h
