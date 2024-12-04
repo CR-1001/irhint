@@ -144,13 +144,13 @@ for percent in "1" "5" "10"; do
 
     dfile_top="samples/eclog/ECOM-LOG_top${percent}%.dat"
 
-    ./update_tif.exec    -o HINTB -m 10              -d 178478  $dfile_bottom $dfile_top     &>> output_eclog
-    ./update_tif.exec    -o HINTG -m 5               -d 178478  $dfile_bottom $dfile_top     &>> output_eclog
-    ./update_tif.exec    -o HINTSLICING -m 5 -p 50   -d 178478  $dfile_bottom $dfile_top     &>> output_eclog
-    ./update_tif.exec    -o SHARDING -i 200 -x 2     -d 178478  $dfile_bottom $dfile_top     &>> output_eclog
-    ./update_tif.exec    -o SLICING -p 50            -d 178478  $dfile_bottom $dfile_top     &>> output_eclog
-    ./update_irhint.exec -o A -m 10                  -d 178478  $dfile_bottom $dfile_top     &>> output_eclog
-    ./update_irhint.exec -o B -m 10                  -d 178478  $dfile_bottom $dfile_top     &>> output_eclog
+    ./update_tif.exec    -o HINTB -m 10              -d 206987  $dfile_bottom $dfile_top     &>> output_eclog
+    ./update_tif.exec    -o HINTG -m 5               -d 206987  $dfile_bottom $dfile_top     &>> output_eclog
+    ./update_tif.exec    -o HINTSLICING -m 5 -p 50   -d 206987  $dfile_bottom $dfile_top     &>> output_eclog
+    ./update_tif.exec    -o SHARDING -i 200 -x 2     -d 206987  $dfile_bottom $dfile_top     &>> output_eclog
+    ./update_tif.exec    -o SLICING -p 50            -d 206987  $dfile_bottom $dfile_top     &>> output_eclog
+    ./update_irhint.exec -o A -m 10                  -d 206987  $dfile_bottom $dfile_top     &>> output_eclog
+    ./update_irhint.exec -o B -m 10                  -d 206987  $dfile_bottom $dfile_top     &>> output_eclog
 
 done
 
