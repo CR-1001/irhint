@@ -8,7 +8,7 @@
 
 
 ## Data
-All datasets (and the queries of different extent, element count, and element selectivity) used in the experiments can be sourced from [https://seafile.rlp.net/d/cf3ecc113a7c4c63baa7/](https://seafile.rlp.net/d/cf3ecc113a7c4c63baa7/). Put the unzipped files into directory ```samples```.
+All datasets (and the queries of different extent, element count, and element selectivity) used in the experiments can be sourced from [https://seafile.rlp.net/d/cf3ecc113a7c4c63baa7](https://seafile.rlp.net/d/cf3ecc113a7c4c63baa7). Put the unzipped files into directory ```samples```.
 | Dataset | Archive | Uncompressed |
 | ------ | ------ | ------ |
 | ECLOG | 88.6 MB | 241.1 MB |
