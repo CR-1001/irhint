@@ -12,7 +12,7 @@ qfile="${dfile}_10K_elems3-extent0.1%.qry"
 
 ./query_tif.exec    -o HINTB -m 10              -r 10 $dfile $qfile       &>> output_eclog
 ./query_tif.exec    -o HINTG -m 5               -r 10 $dfile $qfile       &>> output_eclog
-./query_tif.exec    -o HINTSLICING -m 5 -p 250  -r 10 $dfile $qfile       &>> output_eclog
+./query_tif.exec    -o HINTSLICING -m 5 -p 50   -r 10 $dfile $qfile       &>> output_eclog
 ./query_tif.exec    -o SHARDING -i 100 -x 5     -r 10 $dfile $qfile       &>> output_eclog
 ./query_tif.exec    -o SLICING -p 50            -r 10 $dfile $qfile       &>> output_eclog
 ./query_irhint.exec -o A -m 10                  -r 10 $dfile $qfile       &>> output_eclog
@@ -27,7 +27,7 @@ for extent in "0.01" "0.05" "0.1" "0.5" "1.0"; do
 
     ./query_tif.exec    -o HINTB -m 10              -r 10 $dfile $qfile       &>> output_eclog
     ./query_tif.exec    -o HINTG -m 5               -r 10 $dfile $qfile       &>> output_eclog
-    ./query_tif.exec    -o HINTSLICING -m 5 -p 250  -r 10 $dfile $qfile       &>> output_eclog
+    ./query_tif.exec    -o HINTSLICING -m 5 -p 50   -r 10 $dfile $qfile       &>> output_eclog
     ./query_tif.exec    -o SHARDING -i 100 -x 5     -r 10 $dfile $qfile       &>> output_eclog
     ./query_tif.exec    -o SLICING -p 50            -r 10 $dfile $qfile       &>> output_eclog
     ./query_irhint.exec -o A -m 10                  -r 10 $dfile $qfile       &>> output_eclog
@@ -44,7 +44,7 @@ for elems in "1" "2" "3" "4" "5"; do
 
     ./query_tif.exec    -o HINTB -m 10              -r 10 $dfile $qfile       &>> output_eclog
     ./query_tif.exec    -o HINTG -m 5               -r 10 $dfile $qfile       &>> output_eclog
-    ./query_tif.exec    -o HINTSLICING -m 5 -p 250  -r 10 $dfile $qfile       &>> output_eclog
+    ./query_tif.exec    -o HINTSLICING -m 5 -p 50   -r 10 $dfile $qfile       &>> output_eclog
     ./query_tif.exec    -o SHARDING -i 100 -x 5     -r 10 $dfile $qfile       &>> output_eclog
     ./query_tif.exec    -o SLICING -p 50            -r 10 $dfile $qfile       &>> output_eclog
     ./query_irhint.exec -o A -m 10                  -r 10 $dfile $qfile       &>> output_eclog
@@ -78,7 +78,7 @@ qfile="${dfile}_10K_elems3-extent0.1%.qry"
 
 ./query_tif.exec    -o HINTB -m 10              -r 10 $dfile $qfile       &>> output_wikipedia
 ./query_tif.exec    -o HINTG -m 5               -r 10 $dfile $qfile       &>> output_wikipedia
-./query_tif.exec    -o HINTSLICING -m 5 -p 250  -r 10 $dfile $qfile       &>> output_wikipedia
+./query_tif.exec    -o HINTSLICING -m 5 -p 50   -r 10 $dfile $qfile       &>> output_wikipedia
 ./query_tif.exec    -o SHARDING -i 200 -x 2     -r 10 $dfile $qfile       &>> output_wikipedia
 ./query_tif.exec    -o SLICING -p 50            -r 10 $dfile $qfile       &>> output_wikipedia
 ./query_irhint.exec -o A -m 9                   -r 10 $dfile $qfile       &>> output_wikipedia
