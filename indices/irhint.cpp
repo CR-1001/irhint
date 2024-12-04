@@ -258,7 +258,7 @@ irHINTa::irHINTa(const IRelation &R, const unsigned int numBits = 0) : Hierarchi
         this->updatePartitions(r);
     
 
-#ifdef CONSTRUCTION_TWO_PASSES    
+#ifdef CONSTRUCTION_TWO_PASSES
     // Free auxiliary memory.
     for (auto l = 0; l < this->height; l++)
     {

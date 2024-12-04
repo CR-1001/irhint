@@ -12,278 +12,154 @@ echo "--- default ---"
 dfile="$dir/default/norm_zipf_w128000000_n_dev1000000_a1.2_n1000000.txt_terms50_dict100000_skew1.5"
 qfile="${dfile}_10K_elems3-extent0.1%.qry"
 
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
+ ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_synthetic
+ ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_synthetic
+ ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_synthetic
+ ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_synthetic
+ ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_synthetic
 
 
 echo "--- vary_cardinality ---"
 
-dfile="$dir/vary_cardinality/norm_zipf_w128000000_n_dev1000000_a1.2_n100000.txt_terms50_dict10000_skew1.5"
-qfile="${dfile}_10K_elems3-extent0.1%.qry"
+for card in "100000" "500000" "5000000" "10000000"; do
 
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
+    dfile="$dir/vary_cardinality/norm_zipf_w128000000_n_dev1000000_a1.2_n${card}.txt_terms50_dict10000_skew1.5"
+    qfile="${dfile}_10K_elems3-extent0.1%.qry"
 
-dfile="$dir/vary_cardinality/norm_zipf_w128000000_n_dev1000000_a1.2_n500000.txt_terms50_dict10000_skew1.5"
-qfile="${dfile}_10K_elems3-extent0.1%.qry"
+    ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_synthetic
 
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
-
-dfile="$dir/vary_cardinality/norm_zipf_w128000000_n_dev1000000_a1.2_n5000000.txt_terms50_dict10000_skew1.5"
-qfile="${dfile}_10K_elems3-extent0.1%.qry"
-
-./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
-./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
-./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
-./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
-./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
-
-dfile="$dir/vary_cardinality/norm_zipf_w128000000_n_dev1000000_a1.2_n10000000.txt_terms50_dict10000_skew1.5"
-qfile="${dfile}_10K_elems3-extent0.1%.qry"
-
-./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
-./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
-./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
-./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
-./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
-
-
-echo "--- vary_description ---"
-
-dfile="$dir/vary_description/norm_zipf_w128000000_n_dev1000000_a1.2_n1000000.txt_terms5_dict100000_skew1.5"
-qfile="${dfile}_10K_elems3-extent0.1%.qry"
-
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
-
-dfile="$dir/vary_description/norm_zipf_w128000000_n_dev1000000_a1.2_n1000000.txt_terms10_dict100000_skew1.5"
-qfile="${dfile}_10K_elems3-extent0.1%.qry"
-
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
-
-dfile="$dir/vary_description/norm_zipf_w128000000_n_dev1000000_a1.2_n1000000.txt_terms100_dict100000_skew1.5"
-qfile="${dfile}_10K_elems3-extent0.1%.qry"
-
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
-
-dfile="$dir/vary_description/norm_zipf_w128000000_n_dev1000000_a1.2_n1000000.txt_terms500_dict100000_skew1.5"
-qfile="${dfile}_10K_elems3-extent0.1%.qry"
-
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
-
-
-echo "--- vary_deviation ---"
-
-dfile="$dir/vary_deviation/norm_zipf_w128000000_n_dev1000000_a1.01_n1000000.txt_terms100_dict100000_skew1.5"
-qfile="${dfile}_10K_elems3-extent0.1%.qry"
-
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
-
-dfile="$dir/vary_deviation/norm_zipf_w128000000_n_dev1000000_a1.1_n1000000.txt_terms100_dict100000_skew1.5"
-qfile="${dfile}_10K_elems3-extent0.1%.qry"
-
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
-
-dfile="$dir/vary_deviation/norm_zipf_w128000000_n_dev1000000_a1.4_n1000000.txt_terms100_dict100000_skew1.5"
-qfile="${dfile}_10K_elems3-extent0.1%.qry"
-
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
-
-dfile="$dir/vary_deviation/norm_zipf_w128000000_n_dev1000000_a1.8_n1000000.txt_terms100_dict100000_skew1.5"
-qfile="${dfile}_10K_elems3-extent0.1%.qry"
-
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
+done
 
 
 echo "--- vary_domain ---"
 
-dfile="$dir/vary_domain/norm_zipf_w32000000_n_dev1000000_a1.2_n1000000.txt_terms50_dict100000_skew1.5"
-qfile="${dfile}_10K_elems3-extent0.1%.qry"
+for domain in "32000000" "64000000" "256000000" "512000000"; do
 
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
+    dfile="$dir/vary_domain/norm_zipf_w${domain}_n_dev1000000_a1.2_n1000000.txt_terms50_dict100000_skew1.5"
+    qfile="${dfile}_10K_elems3-extent0.1%.qry"
 
-dfile="$dir/vary_domain/norm_zipf_w64000000_n_dev1000000_a1.2_n1000000.txt_terms50_dict100000_skew1.5"
-qfile="${dfile}_10K_elems3-extent0.1%.qry"
+    ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_synthetic
 
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
-
-dfile="$dir/vary_domain/norm_zipf_w256000000_n_dev1000000_a1.2_n1000000.txt_terms50_dict100000_skew1.5"
-qfile="${dfile}_10K_elems3-extent0.1%.qry"
-
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
-
-dfile="$dir/vary_domain/norm_zipf_w512000000_n_dev1000000_a1.2_n1000000.txt_terms50_dict100000_skew1.5"
-qfile="${dfile}_10K_elems3-extent0.1%.qry"
-
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
+done
 
 
-echo "--- vary_qelems ---"
+echo "--- vary_dictionary ---"
 
-dfile="$dir/vary_qelems/norm_zipf_w128000000_n_dev1000000_a1.2_n1000000.txt_terms50_dict100000_skew1.5"
-qfile="${dfile}_10K_elems1-extent0.1%.qry"
+for dict in "10000" "50000" "500000" "1000000"; do
 
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
+    dfile="$dir/vary_alpha/norm_zipf_w128000000_n_dev1000000_a1.2_n1000000.txt_terms50_dict${dict}_skew1.5"
+    qfile="${dfile}_10K_elems3-extent0.1%.qry"
 
-qfile="${dfile}_10K_elems2-extent0.1%.qry"
+    ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_synthetic
 
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
-
-qfile="${dfile}_10K_elems4-extent0.1%.qry"
-
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
-
-qfile="${dfile}_10K_elems5-extent0.1%.qry"
-
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
+done
 
 
-echo "--- vary_qextent ---"
+echo "--- vary_alpha ---"
 
-dfile="$dir/vary_qextent/norm_zipf_w128000000_n_dev1000000_a1.2_n1000000.txt_terms50_dict100000_skew1.5"
-qfile="${dfile}_10K_elems3-extent0.01%.qry"
+for alpha in "1.01" "1.1" "1.4" "1.8"; do
 
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
+    dfile="$dir/vary_alpha/norm_zipf_w128000000_n_dev1000000_a${alpha}_n1000000.txt_terms50_dict100000_skew1.5"
+    qfile="${dfile}_10K_elems3-extent0.1%.qry"
 
-qfile="${dfile}_10K_elems3-extent0.5%.qry"
+    ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_synthetic
 
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
+done
 
-qfile="${dfile}_10K_elems3-extent1.0%.qry"
 
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
+echo "--- vary_description ---"
 
-qfile="${dfile}_10K_elems3-extent5.0%.qry"
+for desc in "5" "10" "100" "500"; do
 
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
+    dfile="$dir/vary_description/norm_zipf_w128000000_n_dev1000000_a1.2_n1000000.txt_terms${desc}_dict100000_skew1.5"
+    qfile="${dfile}_10K_elems3-extent0.1%.qry"
+
+    ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_synthetic
+
+done
+
+
+echo "--- vary_deviation ---"
+
+for devi in "10000" "100000" "5000000" "10000000"; do
+
+    dfile="$dir/vary_deviation/norm_zipf_w128000000_n_dev${devi}_a1.2_n1000000.txt_terms50_dict100000_skew1.5"
+    qfile="${dfile}_10K_elems3-extent0.1%.qry"
+
+    ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_synthetic
+
+done
 
 
 echo "--- vary_skewness ---"
 
-dfile="$dir/default/norm_zipf_w128000000_n_dev1000000_a1.001_n1000000.txt_terms50_dict100000_skew1.001"
-qfile="${dfile}_10K_elems3-extent0.1%.qry"
+for skew in "1.001" "1.25" "1.75" "2.0"
 
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
+    dfile="$dir/default/norm_zipf_w128000000_n_dev1000000_a1.2_n1000000.txt_terms50_dict100000_skew${skew}"
+    qfile="${dfile}_10K_elems3-extent0.1%.qry"
 
-dfile="$dir/default/norm_zipf_w128000000_n_dev1000000_a1.2_n1000000.txt_terms50_dict100000_skew1.25"
-qfile="${dfile}_10K_elems3-extent0.1%.qry"
+    ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_synthetic
 
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
+done
 
-dfile="$dir/default/norm_zipf_w128000000_n_dev1000000_a1.2_n1000000.txt_terms50_dict100000_skew1.75"
-qfile="${dfile}_10K_elems3-extent0.1%.qry"
 
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
+echo "--- vary_qelems ---"
 
-dfile="$dir/default/norm_zipf_w128000000_n_dev1000000_a1.2_n1000000.txt_terms50_dict100000_skew2.0"
-qfile="${dfile}_10K_elems3-extent0.1%.qry"
+for elems in "1" "2" "4" "5"; do
 
- ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_irHINTa
- ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_irHINTb
- ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_sharding
- ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_slicing
- ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_hintslicing
+    dfile="$dir/vary_qelems/norm_zipf_w128000000_n_dev1000000_a1.2_n1000000.txt_terms50_dict100000_skew1.5"
+    qfile="${dfile}_10K_elems${elems}-extent0.1%.qry"
+
+    ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_synthetic
+
+done
+
+echo "--- vary_qextent ---"
+
+for extent in "0.01" "0.5" "1.0" "5.0"; do
+
+    dfile="$dir/vary_qextent/norm_zipf_w128000000_n_dev1000000_a1.2_n1000000.txt_terms50_dict100000_skew1.5"
+    qfile="${dfile}_10K_elems3-extent${extent}%.qry"
+
+    ./query_irhint.exec -o A -m 13                   -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_irhint.exec -o B -m 15                   -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o SHARDING -i 200 -x 2      -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o SLICING -p 250            -r $runs    $dfile $qfile       &>> output_synthetic
+    ./query_tif.exec    -o HINTSLICING -p 250 -m 8   -r $runs    $dfile $qfile       &>> output_synthetic
+
+done
 
 
 make clean

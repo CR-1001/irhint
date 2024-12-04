@@ -77,7 +77,7 @@ using namespace std;
 
 //#define USE_SS
 
-//#define CONSTRUCTION_TWO_PASSES // memory issues
+//#define CONSTRUCTION_TWO_PASSES
 
 
 

@@ -229,7 +229,7 @@ int main(int argc, char **argv)
     cout << "  Avg terms set size           : "; printf("%f\n", iR.avgTermsSetSize);
     cout << endl;
     cout << "Index" << endl;
-    cout << "  Optimization                 : " << ((settings.optimizationTIF == TIF_OPTIMIZATION_NO)? "basic": strOptimization) << endl;
+    cout << "  Optimization                 : " << strOptimization << endl;
     cout << "  Parameters                   : " << settings.paramsstr() << endl;
     printf( "  Indexing time [secs]         : %f\n", totalIndexTime);
     cout << "  Size [Bytes]                 : " << idxIR->getSize() << endl;

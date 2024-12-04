@@ -8,7 +8,12 @@
 
 
 ## Data
-Directory  ```samples``` includes the ECLOG and WIKIPEDIA datasets used in the experiments and the queries of different extent, elements count, and element selectivity. SYNTHETIC can be sourced from [https://seafile.rlp.net/d/6365f5eb01d4430899b8/](https://seafile.rlp.net/d/6365f5eb01d4430899b8/) (3 GB).
+All datasets (and the queries of different extent, element count, and element selectivity) used in the experiments can be sourced from [https://seafile.rlp.net/d/6365f5eb01d4430899b8/](https://seafile.rlp.net/d/6365f5eb01d4430899b8/). Put the unzipped files in directory ```samples```.
+| Dataset | Archive | Uncompressed |
+| ------ | ------ | ------ |
+| ECLOG | 88.6 MB | 241.1 MB |
+| WIKIPEDIA | 291.7 MB | 6.3 GB |
+| SYNTHETIC | 3.0 GB | 9.5 GB |
 
 
 ## Compile
@@ -271,3 +276,35 @@ The first will be used for constructing, the second for updating the index.
     ```sh
     $ ./query_irhint.exec -o A -m 10 samples/eclog/ECOM-LOG.dat_bottom90% samples/eclog/ECOM-LOG.dat_top10%
     ```
+
+
+## Experiments
+To reproduce all experiments in the paper follow the instructions below.
+Reports will be written to ```output_<dataset>```; one file for each dataset.
+
+### Real datasets
+Execute experiments:
+- vary query extent
+- vary query elements
+- vary selectivity
+- vary update percentage
+
+```
+$ bash scripts/experiments_real.sh
+```
+
+### Synthetic datasets
+Execute experiments:
+- vary cardinality
+- vary domain
+- vary dictionary
+- vary alpha (interval duration)
+- vary description
+- vary deviation (interval position)
+- vary skewness (element frequency)
+- vary query extent
+- vary query elements
+
+```
+$ bash scripts/experiments_synthetic.sh
+```
