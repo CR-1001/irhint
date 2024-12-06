@@ -2,10 +2,8 @@
  * Project:  irhint
  * Purpose:  Fast indexing for termporal information retrieval
  * Author:   Christian Rauch
- * Author:   Panagiotis Bouros, pbour@github.io
- * Author:   George Christodoulou
  ******************************************************************************
- * Copyright (c) 2020 - 2024
+ * Copyright (c) 2023 - 2024
  *
  * All rights reserved.
  *

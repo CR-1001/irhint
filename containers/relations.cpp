@@ -1,11 +1,20 @@
 /******************************************************************************
  * Project:  irhint
+ * Purpose:  Fast indexing for termporal information retrieval
+ * Author:   Panagiotis Bouros, pbour@github.io
+ * Author:   Christian Rauch
+ ******************************************************************************
+ * Copyright (c) 2023 - 2024
+ *
+ *
+ * Extending
+ *
+ * Project:  hint
  * Purpose:  Indexing interval data
  * Author:   Panagiotis Bouros, pbour@github.io
  * Author:   George Christodoulou
- * Author:   Christian Rauch
  ******************************************************************************
- * Copyright (c) 2020 - 2024
+ * Copyright (c) 2020 - 2022
  *
  * All rights reserved.
  *

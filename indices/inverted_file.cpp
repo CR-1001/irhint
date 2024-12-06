@@ -5,7 +5,7 @@
  * Author:   George Christodoulou
  * Author:   Christian Rauch
  ******************************************************************************
- * Copyright (c) 2020 - 2024
+ * Copyright (c) 2023 - 2024
  *
  * All rights reserved.
  *
