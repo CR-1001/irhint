@@ -103,7 +103,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 | Extra parameter | Description | Comment |
 | ------ | ------ | ------ |
 | -o | \"SHARDING\" to activate sharding of posting lists |  |
-| -x | set the relaxation factor in percent of the domain | 5 for ECLOG, 2 for both WIKIPEDIA and SYNTHETIC |
+| -x | set the relaxation factor in percent of the domain | 5 for ECLOG, 2 for both WIKIPEDIA and SYNTHETICS |
 | -i | set the gap for impact-list entries | 100 for ECLOG, 200 for both WIKIPEDIA and SYNTHETICS |
 
 - ##### Examples
