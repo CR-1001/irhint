@@ -13,7 +13,7 @@ All datasets (and the queries of different extent, element count, and element se
 | ------ | ------ | ------ |
 | ECLOG | 88.6 MB | 241.1 MB |
 | WIKIPEDIA | 291.7 MB | 6.3 GB |
-| SYNTHETIC | 3.0 GB | 9.5 GB |
+| SYNTHETICS | 3.0 GB | 9.5 GB |
 
 
 ## Compile
@@ -73,7 +73,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 | Extra parameter | Description | Comment |
 | ------ | ------ | ------ |
 | -o | \"SLICING\" to activate slicing of posting lists |  |
-| -p | set the number of partitions | 50 for ECLOG, WIKIPEDIA, and 250 for SYNTHETIC |
+| -p | set the number of partitions | 50 for ECLOG, WIKIPEDIA, and 250 for SYNTHETICS |
 
 - ##### Examples
     ```sh
@@ -104,7 +104,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 | ------ | ------ | ------ |
 | -o | \"SHARDING\" to activate sharding of posting lists |  |
 | -x | set the relaxation factor in percent of the domain | 5 for ECLOG, 2 for both WIKIPEDIA and SYNTHETIC |
-| -i | set the gap for impact-list entries | 100 for ECLOG, 200 for both WIKIPEDIA and SYNTHETIC |
+| -i | set the gap for impact-list entries | 100 for ECLOG, 200 for both WIKIPEDIA and SYNTHETICS |
 
 - ##### Examples
     ```sh
@@ -168,7 +168,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 | Extra parameter | Description | Comment |
 | ------ | ------ | ------ |
 | -o | \"HINTG\" to activate HINT-organized posting lists with merge sort |  |
-| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 5 for both ECLOG and WIKIPEDIA, and 8 for SYNTHETIC |
+| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 5 for both ECLOG and WIKIPEDIA, and 8 for SYNTHETICS |
 
 - ##### Examples
     ```sh
@@ -200,7 +200,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 | Extra parameter | Description | Comment |
 | ------ | ------ | ------ |
 | -o | \"HINTSLICING\" to activate HINT-organized posting lists with Slicing |  |
-| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 5 for both ECLOG and WIKIPEDIA, and 8 for SYNTHETIC |
+| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 5 for both ECLOG and WIKIPEDIA, and 8 for SYNTHETICS |
 | -p | set the number of partitions | 50 for both ECLOG and WIKIPEDIA, and 250 for SYNTHETIC |
 
 - ##### Examples
@@ -229,7 +229,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 | Extra parameter | Description | Comment |
 | ------ | ------ | ------ |
 | -o | \"A\" to activate performance mode |  |
-| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 10 for ECLOG, 9 for WIKIPEDIA and 13 for SYNTHETIC |
+| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 10 for ECLOG, 9 for WIKIPEDIA and 13 for SYNTHETICS |
 
 - ##### Examples
     ```sh
@@ -257,7 +257,7 @@ Compile using ```make all``` or ```make <option>``` where `<option>` can be one 
 | Extra parameter | Description | Comment |
 | ------ | ------ | ------ |
 | -o | \"B\" to activate memory mode |  |
-| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 10 for both ECLOG and WIKIPEDIA and 15 for SYNTHETIC |
+| -m | set the number of bits; if not set, a value will be automatically determined using the cost model | 10 for both ECLOG and WIKIPEDIA and 15 for SYNTHETICS |
 
 - ##### Examples
     ```sh
